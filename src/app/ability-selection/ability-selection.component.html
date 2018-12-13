@@ -1,0 +1,6 @@
+<div class="actions">
+    <button mat-raised-button color="primary" (click)="attack('attack')">Attack</button>
+    <button mat-raised-button color="primary" (click)="attack('crushingBlow')" [disabled]="!isAttackPossible(player, 'crushingBlow')">Crushing Blow <!-- - {{player.abilities.crushingBlow.healthCost}} hp--></button>
+    <button mat-raised-button color="primary" (click)="attack('minorHeal')">Minor Heal</button>
+    <button mat-raised-button color="primary" (click)="defend()">Defend</button>
+  </div>

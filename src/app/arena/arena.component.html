@@ -1,0 +1,21 @@
+<div class="arena-grid">
+<div class="arena-view">
+  <img *ngIf="player.hp > 0" src={{player.unitImage}} />
+  <div></div>
+  <img *ngIf="goblin.hp > 0" src={{goblin.unitImage}} />
+</div>
+<div class="menu-view" style="border: 1px solid black">
+  <ability-selection class="actions" (actionTaken)="takeAction($event)">
+  </ability-selection>
+  <div class="own-stats">
+    <span class="player-name">Player 1</span><br/>
+    <span *ngIf="player.hp > 0">HP: {{player.hp}}/{{player.maxHp}}</span>
+    <span *ngIf="player.hp <= 0">Defeated</span>
+  </div>
+  <div class="opponent-stats">
+    <span>{{goblin.name}}</span><br/>
+    <span *ngIf="goblin.hp > 0">HP: {{goblin.hp}}/{{goblin.maxHp}}</span>
+    <span *ngIf="goblin.hp <= 0">Defeated</span>
+  </div>
+</div>
+</div>
