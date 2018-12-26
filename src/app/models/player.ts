@@ -1,5 +1,4 @@
 import { Level } from "./level";
-import { AnimationBuilder } from "@angular/animations";
 import { StatProgression } from "./statProgression";
 
 export class Player {

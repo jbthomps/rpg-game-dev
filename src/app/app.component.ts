@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ScreenViewStateService } from './screenState.service'
+import { ScreenViewStateService } from './screenState.service';
+import { AudioService } from './audio.service';
 
 enum appStates {
   'MENU',
@@ -13,5 +14,19 @@ enum appStates {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public view: ScreenViewStateService) {}
+  constructor(public view: ScreenViewStateService, private audio: AudioService) {
+    
+  }
+
+  goToMap(){
+    this.view.goToMap();
+  }
+
+  goToMenu(){
+
+  }
+
+  startMusic(){
+    this.audio.startBackground();
+  }
 }

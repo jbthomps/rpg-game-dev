@@ -2,9 +2,10 @@
 <div *ngIf="view.viewState === 'MENU'" style="height:100%; display:flex;">
   <div class="menuItems">
     <h1>Insert imposing title here</h1>
-    <button mat-raised-button color="primary" (click)="view.goToMap()">New Game</button>
+    <button mat-raised-button color="primary" (click)="goToMap()">New Game</button>
     <button mat-raised-button color="primary" disabled>Load Game</button>
-    <button mat-raised-button color="primary" disabled>Options</button>
+    <button mat-raised-button color="primary" disabled (click)="goToMenu()">Options</button>
+    <button mat-raised-button color="primary" (click)="startMusic()">Start Music</button>
   </div>
 </div>
 <adventure-map *ngIf="view.viewState === 'MAP'"></adventure-map>

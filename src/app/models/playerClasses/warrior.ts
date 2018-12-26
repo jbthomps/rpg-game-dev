@@ -3,7 +3,7 @@ import { StatProgression } from "../statProgression";
 
 export class Warrior implements PlayerClass {
     readonly name = 'Warrior';
-    readonly abilities = new Map([[1, {
+    readonly abilities = new Map<number, any>([[1, {
         crushingBlow: {
             name: "Crushing Blow",
             damageModifier: 1.6,

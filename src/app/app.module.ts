@@ -12,6 +12,7 @@ import { NotificationDialogComponent } from './combat-engine/turn-engine/notific
 import { AbilitySelectionComponent } from './ability-selection/ability-selection.component';
 import { ScreenViewStateService } from './screenState.service';
 import { AdventureMapComponent } from './adventure-map/adventure-map.component';
+import { AudioService } from './audio.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { AdventureMapComponent } from './adventure-map/adventure-map.component';
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [CombatTurnService, CombatantStoreService, MessageLogService, ScreenViewStateService],
+  providers: [CombatTurnService, CombatantStoreService, MessageLogService, ScreenViewStateService, AudioService],
   bootstrap: [AppComponent],
   entryComponents: [NotificationDialogComponent]
 })
