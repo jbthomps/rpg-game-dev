@@ -1,0 +1,19 @@
+.adventure-map {
+    display: grid;
+    grid-template-rows: 70vh 30vh;
+}
+
+.map {
+    display: grid;
+    grid-template: '. . town1 . .' 'slaughterHouse . . . .' '. . . . .' '. . . . .' '. . . . .';
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.town {
+    grid-area: town1
+}
+
+.dungeon {
+    grid-area: slaughterHouse
+}

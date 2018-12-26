@@ -1,0 +1,10 @@
+.menuItems {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.menuItems button {
+    font-size: 24px;
+    margin: 8px 0;
+}

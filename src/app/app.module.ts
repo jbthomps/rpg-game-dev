@@ -10,6 +10,8 @@ import { CombatantStoreService } from './combat-engine/combatant-store/combatant
 import { MessageLogService } from './combat-engine/message-log/message-log.service';
 import { NotificationDialogComponent } from './combat-engine/turn-engine/notification-dialog.component';
 import { AbilitySelectionComponent } from './ability-selection/ability-selection.component';
+import { ScreenViewStateService } from './screenState.service';
+import { AdventureMapComponent } from './adventure-map/adventure-map.component';
 
 
 @NgModule({
@@ -17,7 +19,8 @@ import { AbilitySelectionComponent } from './ability-selection/ability-selection
     AppComponent,
     ArenaComponent,
     AbilitySelectionComponent,
-    NotificationDialogComponent
+    NotificationDialogComponent,
+    AdventureMapComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +28,7 @@ import { AbilitySelectionComponent } from './ability-selection/ability-selection
     MatDialogModule,
     BrowserAnimationsModule
   ],
-  providers: [CombatTurnService, CombatantStoreService, MessageLogService],
+  providers: [CombatTurnService, CombatantStoreService, MessageLogService, ScreenViewStateService],
   bootstrap: [AppComponent],
   entryComponents: [NotificationDialogComponent]
 })
