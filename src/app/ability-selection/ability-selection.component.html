@@ -1,6 +1,3 @@
 <div class="actions">
-    <button mat-raised-button color="primary" (click)="attack('attack')">Attack</button>
-    <button mat-raised-button color="primary" (click)="attack('crushingBlow')" [disabled]="!isAttackPossible(player, 'crushingBlow')">Crushing Blow <!-- - {{player.abilities.crushingBlow.healthCost}} hp--></button>
-    <button mat-raised-button color="primary" (click)="attack('minorHeal')">Minor Heal</button>
-    <button mat-raised-button color="primary" (click)="defend()">Defend</button>
-  </div>
+  <button mat-raised-button *ngFor="let action of actionList; let idx = index;" color="primary" (click)="act(idx)" [disabled]="!isAttackPossible(player, idx)">{{action.name}}</button>
+</div>

@@ -85,4 +85,6 @@ export class Player {
         this._attack = progression.baseAtk + classLevel*progression.atkPerLevel;
         this._defense = progression.baseDef + classLevel*progression.defPerLevel;
     }
+
+    conditions = [];
 }

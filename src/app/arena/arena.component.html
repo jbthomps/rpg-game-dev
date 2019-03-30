@@ -1,21 +1,41 @@
 <div class="arena-grid">
-<div class="arena-view">
-  <img *ngIf="player.hp > 0" src={{player.unitImage}} />
-  <div></div>
-  <img *ngIf="goblin.hp > 0" src={{goblin.unitImage}} />
-</div>
-<div class="menu-view" style="border: 1px solid black">
-  <ability-selection class="actions" (actionTaken)="takeAction($event)">
-  </ability-selection>
-  <div class="own-stats">
-    <span class="player-name">Player 1</span><br/>
-    <span *ngIf="player.hp > 0">HP: {{player.hp}}/{{player.maxHp}}</span>
-    <span *ngIf="player.hp <= 0">Defeated</span>
+  <div class="arena-view">
+    <img *ngIf="player.hp > 0" src={{player.unitImage}} />
+    <div></div>
+    <img *ngIf="goblin.hp > 0" src={{goblin.unitImage}} />
   </div>
-  <div class="opponent-stats">
-    <span>{{goblin.name}}</span><br/>
-    <span *ngIf="goblin.hp > 0">HP: {{goblin.hp}}/{{goblin.maxHp}}</span>
-    <span *ngIf="goblin.hp <= 0">Defeated</span>
+
+  <div class="summary">
+    <!--TODO: Replace this button with an escape mechanic-->
+    <!-- <button mat-raised-button color="primary" (click)="back()">back</button> -->
+    <img class="note-icon high-special" src="/assets/icons/quarter-note.svg" />
+    <div class="special-energy"></div>
+    <div class="progress-overlay">
+      <div class="progress-area"></div>
+      <div class="progress-area"></div>
+      <div class="progress-area"></div>
+      <div class="progress-area"></div>
+      <div class="progress-area"></div>
+    </div>
+
   </div>
-</div>
+
+  <div class="menu-view" style="border: 1px solid black">
+    <ability-selection class="actions" [actionList]="player.abilities" (actionTaken)="takeAction($event)">
+    </ability-selection>
+    <div class="own-stats">
+      <span class="player-name">{{player.name}}</span><br/>
+      <span *ngIf="player.hp > 0">HP: {{player.hp}}/{{player.maxHp}}</span>
+      <span *ngIf="player.hp <= 0">Defeated</span>
+    </div>
+    <div class="opponent-stats">
+      <span>{{goblin.name}}</span><br/>
+      <span *ngIf="goblin.hp > 0">HP: {{goblin.hp}}/{{goblin.maxHp}}</span>
+      <span *ngIf="goblin.hp <= 0">Defeated</span>
+      <br />
+      <ng-container *ngIf="goblin.conditions && goblin.hp > 0">
+        <span *ngFor="let condition of goblin.conditions">{{condition.name}}</span> <br />
+      </ng-container>
+    </div>
+  </div>
 </div>

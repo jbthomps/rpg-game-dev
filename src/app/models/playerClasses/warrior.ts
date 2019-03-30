@@ -1,15 +1,27 @@
 import { PlayerClass } from "../playerClass";
 import { StatProgression } from "../statProgression";
+import { ParalysisCondition } from "../conditions/paralysis";
 
 export class Warrior implements PlayerClass {
     readonly name = 'Warrior';
     readonly abilities = new Map<number, any>([[1, {
-        crushingBlow: {
+        /* crushingBlow: {
             name: "Crushing Blow",
             damageModifier: 1.6,
             defenseModifier: 1,
             healthCost: 6,
             energyCost: 0
+        } */
+        slowStrike: {
+            name: "Slow Strike",
+            damageModifier: .8,
+            defenseModifier: 1,
+            healthCost: 6,
+            energyCost: 0,
+            grantBuff: () => undefined,
+            grantDebuff: () => {
+                if (Math.random() > .5) return [new ParalysisCondition(3)];
+            }
         }
     }]]);
     private baseStats = {

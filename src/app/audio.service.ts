@@ -11,7 +11,7 @@ export class AudioService {
     constructor(){
         this.AudioContext = (window as any).AudioContext || (window as any).webkitAudioContext;
         this.audioCtx =  new AudioContext();
-        this.audioElement = document.querySelector('audio')
+        this.audioElement = document.querySelector('audio');
         this.track = this.audioCtx.createMediaElementSource(this.audioElement);
         this.gainNode = this.audioCtx.createGain();
         this.track.connect(this.gainNode).connect(this.audioCtx.destination);

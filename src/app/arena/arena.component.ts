@@ -3,6 +3,7 @@ import { CombatTurnService } from '../combat-engine/turn-engine/combat-turn.serv
 import { CombatantStoreService } from '../combat-engine/combatant-store/combatant-store.service';
 import { Player } from '../models/player';
 import { Warrior } from '../models/playerClasses/warrior';
+import { ScreenViewStateService } from '../screenState.service';
 
 @Component({
   selector: 'app-arena',
@@ -29,11 +30,12 @@ export class ArenaComponent implements OnInit {
         healthCost: 0,
         energyCost: 0
       }
-    }
+    },
+    conditions: []
   }
 
-  constructor(private combatTurn: CombatTurnService, private combatStore: CombatantStoreService) {
-    this.player = new Player([{classLevel: 1, class: new Warrior()}], 'Player1', null);
+  constructor(private combatTurn: CombatTurnService, private combatStore: CombatantStoreService, public view: ScreenViewStateService) {
+    this.player = new Player([{classLevel: 1, class: new Warrior()}], 'Goblin Slayer', null);
     console.log(this.player);
     combatStore.initializeCombatants({
       player: this.player,
@@ -74,6 +76,9 @@ export class ArenaComponent implements OnInit {
   isAttackPossible(attacker, atkCode): boolean {
     const attackUsed = attacker.abilities[atkCode];
     return attacker.hp - attackUsed.healthCost > 0;
+  }
+  back() {
+    this.view.goToMap();
   }
 
 }
