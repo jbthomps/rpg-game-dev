@@ -1,0 +1,17 @@
+<div class="unit-view">
+  <ability-selection class="actions" [actionList]="unit.abilities" (actionTaken)="takeAction($event)">
+  </ability-selection>
+  <div class="unit-stats">
+    <span class="player-name">{{unit.name}}</span><br/>
+    <span *ngIf="unit.hp > 0">HP: {{unit.hp}}/{{unit.maxHp}}</span>
+    <span *ngIf="unit.hp <= 0">Defeated</span>
+    <ng-container *ngIf="unit.conditions && unit.hp > 0">
+      <span *ngFor="let condition of unit.conditions">{{condition.name}}</span> <br />
+    </ng-container>
+    <initative-gauge class="gauge-area"></initative-gauge>
+  </div>
+  <div>
+    <button mat-button color="primary">Lock Action</button>
+  </div>
+ 
+</div>

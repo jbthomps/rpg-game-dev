@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatDialogModule } from '@angular/material';
+import { MatButtonModule, MatDialogModule, MatMenuModule } from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
@@ -13,6 +13,8 @@ import { AbilitySelectionComponent } from './ability-selection/ability-selection
 import { ScreenViewStateService } from './screenState.service';
 import { AdventureMapComponent } from './adventure-map/adventure-map.component';
 import { AudioService } from './audio.service';
+import { UnitViewComponent } from './unit-view/unit-view.component';
+import { InitativeGaugeComponent } from './initative-gauge/initative-gauge.component';
 
 
 @NgModule({
@@ -21,13 +23,16 @@ import { AudioService } from './audio.service';
     ArenaComponent,
     AbilitySelectionComponent,
     NotificationDialogComponent,
-    AdventureMapComponent
+    AdventureMapComponent,
+    UnitViewComponent,
+    InitativeGaugeComponent
   ],
   imports: [
     BrowserModule,
     MatButtonModule,
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatMenuModule
   ],
   providers: [CombatTurnService, CombatantStoreService, MessageLogService, ScreenViewStateService, AudioService],
   bootstrap: [AppComponent],

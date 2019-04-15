@@ -1,3 +1,20 @@
-<div class="actions">
+<!--<div class="actions">
   <button mat-raised-button *ngFor="let action of actionList; let idx = index;" color="primary" (click)="act(idx)" [disabled]="!isAttackPossible(player, idx)">{{action.name}}</button>
+</div>-->
+
+<div class="actions">
+  <button mat-raised-button color="primary" [matMenuTriggerFor]="actionTypesMenu">Goblin Slayer</button>
 </div>
+
+<mat-menu #primaryActionsMenu="matMenu" yPosition="above" class="horizontal-menu" overlapTrigger="false">
+  <div class="actions">
+    <button mat-raised-button *ngFor="let action of actionList; let idx = index;" color="primary" (click)="act(idx)" [disabled]="!isAttackPossible(player, idx)">{{action.name}}</button>
+  </div>
+</mat-menu>
+
+<mat-menu #actionTypesMenu="matMenu" yPosition="above" overlapTrigger="false">
+  <div>
+    <button mat-menu-item [matMenuTriggerFor]="primaryActionsMenu">Attacks</button>
+    <button mat-menu-item [matMenuTriggerFor]="primaryActionsMenu">Specials</button>
+    </div>
+</mat-menu>

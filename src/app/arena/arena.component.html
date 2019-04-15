@@ -21,9 +21,8 @@
   </div>
 
   <div class="menu-view" style="border: 1px solid black">
-    <ability-selection class="actions" [actionList]="player.abilities" (actionTaken)="takeAction($event)">
-    </ability-selection>
-    <div class="own-stats">
+    <unit-view [unit]="player"></unit-view>
+    <!--<div class="own-stats">
       <span class="player-name">{{player.name}}</span><br/>
       <span *ngIf="player.hp > 0">HP: {{player.hp}}/{{player.maxHp}}</span>
       <span *ngIf="player.hp <= 0">Defeated</span>
@@ -36,6 +35,6 @@
       <ng-container *ngIf="goblin.conditions && goblin.hp > 0">
         <span *ngFor="let condition of goblin.conditions">{{condition.name}}</span> <br />
       </ng-container>
-    </div>
+    </div>-->
   </div>
 </div>

@@ -1,0 +1,15 @@
+.unit-view {
+    display: grid;
+    grid-template-rows: 25% 50% 25%;
+    height: 100%;
+}
+
+.unit-stats {
+    width: 200px;
+}
+
+.gauge-area {
+    display: block;
+    height: 10px;
+    width: 150px;
+}

@@ -1,6 +1,6 @@
 .actions {
     display: grid;
-    grid-template-rows: 40px 40px 40px 40px 1fr;
-    grid-row-gap: 5px;
-    grid-column: 1 / 2;
+    grid-template-columns: 120px 120px 120px 120px 1fr;
+    grid-column-gap: 5px;
+    margin: 5px;
 }
