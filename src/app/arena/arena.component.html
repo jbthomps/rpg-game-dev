@@ -21,7 +21,7 @@
   </div>
 
   <div class="menu-view" style="border: 1px solid black">
-    <unit-view [unit]="player"></unit-view>
+    <unit-view [unit]="player" (actionTaken)="takeAction($event)"></unit-view>
     <!--<div class="own-stats">
       <span class="player-name">{{player.name}}</span><br/>
       <span *ngIf="player.hp > 0">HP: {{player.hp}}/{{player.maxHp}}</span>

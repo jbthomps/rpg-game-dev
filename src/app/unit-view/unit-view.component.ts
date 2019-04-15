@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'unit-view',
@@ -8,10 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
 export class UnitViewComponent implements OnInit {
 
   @Input() unit;
+  @Output() actionTaken: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  takeAction(event) {
+    this.actionTaken.emit(event);
   }
 
 }
