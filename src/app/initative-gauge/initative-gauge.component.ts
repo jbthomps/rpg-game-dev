@@ -29,7 +29,6 @@ export class InitativeGaugeComponent implements OnInit {
         return;
       }
       this.timer += this.tempo;
-      ;
     }, 100)
   }
 
