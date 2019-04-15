@@ -8,10 +8,11 @@
     <ng-container *ngIf="unit.conditions && unit.hp > 0">
       <span *ngFor="let condition of unit.conditions">{{condition.name}}</span> <br />
     </ng-container>
-    <initative-gauge class="gauge-area"></initative-gauge>
+    <initative-gauge class="gauge-area" #initative (timer)="updateTimer($event)" [setTimer]="setTimer"></initative-gauge>
   </div>
   <div>
-    <button mat-button color="primary">Lock Action</button>
+    <button mat-button color="primary" [disabled]="!lockedAction || this.isLocked" (click)="lockAction()">
+      {{timerVal <= 5000 ? 'Lock' : 'Take'}} Action{{lockedAction ? ': ' + lockedAction : ''}}
+    </button>
   </div>
- 
 </div>

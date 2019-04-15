@@ -30,6 +30,7 @@ export class AbilitySelectionComponent implements OnInit {
   }
 
   attack(atkCode: string) {
+    console.log(atkCode);
     this.actionTaken.emit(atkCode);
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, Input } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 @Component({
   selector: 'initative-gauge',
@@ -9,9 +9,13 @@ export class InitativeGaugeComponent implements OnInit {
 
   timerWidth = 0
   _timer = 0;
-  @Output() 
+  @Output('timer') timerEmitter = new EventEmitter();
+  @Input() setTimer: EventEmitter<number>;
+
+  //Should timer be an ngModel?  Not sure if I want outside components having direct control.  
   set timer(value) {
     this._timer = value;
+    this.timerEmitter.emit(value);
     this.timerWidth = Math.ceil((value/this.maximium)*150)
   };
   get timer() {
@@ -30,6 +34,12 @@ export class InitativeGaugeComponent implements OnInit {
       }
       this.timer += this.tempo;
     }, 100)
+  }
+
+  ngAfterViewInit() {
+    if (this.setTimer) this.setTimer.subscribe(val => {
+      this.timer = val
+    })
   }
 
 }
